@@ -1,11 +1,16 @@
 import Style from './QuizCreator.module.scss';
-import QuestionSelector from './QuestionSelector/QuestionSelector';
-import ChoiceCreator from './ChoiceCreator/ChoiceCreator';
+// components
+import QuestionSelector from './components/QuestionSelector/QuestionSelector';
+import ChoiceCreator from './components/ChoiceCreator/ChoiceCreator';
+// provider
+import Provider from './Provider';
 function QuizCreator() {
     return (
         <div className={Style.Main}>
-            <QuestionSelector />
-            <ChoiceCreator />
+            <Provider>
+                <QuestionSelector />
+                <ChoiceCreator />
+            </Provider>
         </div>
     )
 }

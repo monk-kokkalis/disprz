@@ -2,6 +2,13 @@
     color: black;
 }
 
+@mixin main-heading {
+    h1 {
+        font-size: 18px;
+        font-weight: 600;
+    }
+}
+
 @mixin padding {
     padding: 35px;
 }

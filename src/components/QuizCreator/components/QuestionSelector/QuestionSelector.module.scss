@@ -1,0 +1,21 @@
+@use '../../mixins.scss';
+.Main {
+    background-color: #8EC5F2;
+    min-width: 280px;
+    @include mixins.font;
+    @include mixins.main-heading;
+    @include mixins.padding;
+
+    section[class~=questions] {
+        margin-top: 35px;
+        height: 100px;
+
+        ul {
+            li {
+                &:not(:first-of-type) {
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+}

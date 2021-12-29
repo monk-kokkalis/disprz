@@ -1,6 +1,7 @@
-@use '../mixins.scss';
+@use '../../mixins.scss';
 .Main {
     background-color: #BBDEFB;
     @include mixins.padding;
+    @include mixins.main-heading;
     @include mixins.font;
 }
