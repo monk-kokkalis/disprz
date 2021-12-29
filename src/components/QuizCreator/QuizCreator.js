@@ -3,7 +3,7 @@ import Style from './QuizCreator.module.scss';
 import QuestionSelector from './components/QuestionSelector/QuestionSelector';
 import ChoiceCreator from './components/ChoiceCreator/ChoiceCreator';
 // provider
-import Provider from './Provider';
+import Provider from './context/Provider';
 function QuizCreator() {
     return (
         <div className={Style.Main}>

@@ -1,6 +1,6 @@
 import {useContext} from 'react';
 import Style from './QuestionSelector.module.scss';
-import {Context} from '../../Provider';
+import {Context} from '../../context/Provider';
 // components
 import Question from './components/Question/Question';
 function QuestionSelector() {
@@ -10,12 +10,10 @@ function QuestionSelector() {
             <h1 className="heading">Select your questions</h1>
             <section className="questions">
                 <ul>
-                    {context.questions.map(question => 
+                    {context.questState.questions.map(question => 
                         <Question
                             key={question.sequenceNumber}
-                            active={question.active}
-                            name={question.name}
-                            sequenceNumber={question.sequenceNumber}
+                            question={question}
                         />
                     )}
                 </ul>
