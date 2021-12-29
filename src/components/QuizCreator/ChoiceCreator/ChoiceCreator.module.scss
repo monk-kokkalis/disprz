@@ -1,0 +1,6 @@
+@use '../mixins.scss';
+.Main {
+    background-color: #BBDEFB;
+    @include mixins.padding;
+    @include mixins.font;
+}

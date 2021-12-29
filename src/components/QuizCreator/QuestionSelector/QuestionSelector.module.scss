@@ -1,0 +1,7 @@
+@use '../mixins.scss';
+.Main {
+    background-color: #8EC5F2;
+    min-width: 280px;
+    @include mixins.padding;
+    @include mixins.font;
+}
