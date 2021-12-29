@@ -1,5 +1,6 @@
 class Question {
-    constructor({name, sequenceNumber}) {
+    constructor({name, sequenceNumber, active}) {
+        this.active = active;
         this.name = name;
         this.sequenceNumber = sequenceNumber;
     }

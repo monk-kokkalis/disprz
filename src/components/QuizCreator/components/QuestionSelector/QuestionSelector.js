@@ -12,7 +12,8 @@ function QuestionSelector() {
                 <ul>
                     {context.questions.map(question => 
                         <Question
-                            key={question.sequenceNumber} 
+                            key={question.sequenceNumber}
+                            active={question.active}
                             name={question.name}
                             sequenceNumber={question.sequenceNumber}
                         />

@@ -1,7 +1,8 @@
 import Style from './Question.module.scss';
-function Question({name, sequenceNumber}) {
+import className from 'auxiliary/class-name';
+function Question({active, name, sequenceNumber}) {
     return (
-        <li className={Style.Main}>
+        <li className={className(Style.Main, {active})}>
             <div className="sequence">{sequenceNumber}.</div>
             <div className="name">{name}</div>
         </li>

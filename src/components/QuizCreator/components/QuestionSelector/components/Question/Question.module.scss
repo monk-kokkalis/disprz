@@ -1,5 +1,10 @@
 .Main {
-    border: 1px solid green;
+    color: rgba(0, 0, 0, 0.8);
+    cursor: pointer;
     display: grid;
     grid-template-columns: 20px 1fr;
+    &[class~=active] {
+        color: rgba(0, 0, 0, 1);
+        font-weight: 600;
+    }
 }
