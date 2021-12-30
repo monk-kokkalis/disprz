@@ -1,4 +1,4 @@
-import {useContext} from 'react';
+import {useContext, useEffect, useRef} from 'react';
 import Style from './Question.module.scss';
 import className from 'auxiliary/class-name';
 // provider
@@ -6,6 +6,7 @@ import {Context} from '../../../../context/Provider';
 import {questionActions} from '../../../../context/reducers/questions/index';
 function Question({question, index}) {
     const context = useContext(Context);
+    const elementRef = useRef();
     const questionActive = question.id === context.questState.activeQuestion.id;
     const clickHandler = () => {
         context.questDispatch({
@@ -13,8 +14,17 @@ function Question({question, index}) {
             payload: question
         });
     }
+    useEffect(function scrollToView() {
+        if (questionActive) {
+            elementRef.current.scrollIntoView({behavior: 'smooth'});
+        }
+    }, [questionActive]);
     return (
-        <li className={className(Style.Main, {active: questionActive})} onClick={clickHandler}>
+        <li 
+            className={className(Style.Main, {active: questionActive})}
+            onClick={clickHandler}
+            ref={elementRef}>
+
             <div className="sequence">{index + 1}.</div>
             <div className="name">{question.name}</div>
         </li>
