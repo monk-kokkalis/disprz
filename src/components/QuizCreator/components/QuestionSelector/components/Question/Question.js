@@ -1,6 +1,8 @@
 import {useContext, useEffect, useRef} from 'react';
 import Style from './Question.module.scss';
+// auxiliary
 import className from 'auxiliary/class-name';
+import constants from 'auxiliary/constants';
 // provider
 import {Context} from '../../../../context/Provider';
 import {questionActions} from '../../../../context/reducers/questions/index';
@@ -9,10 +11,23 @@ function Question({question, index}) {
     const elementRef = useRef();
     const questionActive = question.id === context.questState.activeQuestion.id;
     const clickHandler = () => {
-        context.questDispatch({
-            type: questionActions.SET_ACTIVE_QUESTION,
-            payload: question
-        });
+        const selectorMode = context.questState.questionSelectorMode;
+        switch(selectorMode) {
+            case constants.CREATIVE:
+                context.questDispatch({
+                    type: questionActions.SET_ACTIVE_QUESTION,
+                    payload: question
+                });
+                break;
+            case constants.DELETE:
+                context.questDispatch({
+                    type: questionActions.DELETE_QUESTION,
+                    payload: {index}
+                })
+                break;
+            default:
+                console.warn(`${selectorMode} is an invalid selector mode`);
+        }
     }
     useEffect(function scrollToView() {
         if (questionActive) {
