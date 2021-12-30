@@ -1,16 +1,11 @@
 import actions from './actions';
-import Question from 'models/Question';
+import actionHandlers from './handlers/index';
 function reducer(state, action) {
     switch(action.type) {
         case actions.ADD_QUESTION:
-            const newQuestion = new Question({
-                name: `New question ${action.payload.index}`,
-            });
-            const questions = [...state.questions];
-            questions.push(newQuestion);
-            return {...state, questions, activeQuestion: newQuestion}
+            return actionHandlers.addQuestion({state, action});
         case actions.SET_ACTIVE_QUESTION:
-            return {...state, activeQuestion: action.payload}
+            return actionHandlers.setActiveQuestion({state, action});
         default:
             throw new Error();
     }
