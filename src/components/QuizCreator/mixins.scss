@@ -1,5 +1,6 @@
 @mixin font {
     color: black;
+    font-size: 16px;
 }
 
 @mixin main-heading {
@@ -10,5 +11,5 @@
 }
 
 @mixin padding {
-    padding: 35px;
+    padding: 20px;
 }

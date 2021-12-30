@@ -18,6 +18,10 @@ function QuestionSelector() {
                     )}
                 </ul>
             </section>
+            <section className="buttons">
+                <button>Add</button>
+                <button>Delete</button>
+            </section>
         </div>
     )
 }
