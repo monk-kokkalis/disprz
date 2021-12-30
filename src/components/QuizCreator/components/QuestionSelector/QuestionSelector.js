@@ -3,6 +3,7 @@ import Style from './QuestionSelector.module.scss';
 import {Context} from '../../context/Provider';
 // components
 import AddQuestion from './components/AddQuestion/AddQuestion';
+import DeleteQuestion from './components/DeleteQuestion/DeleteQuestion';
 import Question from './components/Question/Question';
 function QuestionSelector() {
     const context = useContext(Context);
@@ -22,7 +23,7 @@ function QuestionSelector() {
             </section>
             <section className="buttons">
                 <AddQuestion />
-                <button>Delete</button>
+                <DeleteQuestion />
             </section>
         </div>
     )

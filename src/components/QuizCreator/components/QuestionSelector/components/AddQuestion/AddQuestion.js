@@ -1,4 +1,5 @@
 import {useContext} from 'react';
+import Style from './AddQuestion.module.scss';
 // provider
 import {Context} from '../../../../context/Provider';
 import {questionActions} from '../../../../context/reducers/questions/index';
@@ -13,7 +14,7 @@ function AddQuestion() {
         });
     }
     return (
-        <button onClick={clickHandler}>Add</button>
+        <button onClick={clickHandler} className={Style.Main} >Add</button>
     )
 }
 
