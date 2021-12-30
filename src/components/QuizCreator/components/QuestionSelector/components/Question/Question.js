@@ -4,7 +4,7 @@ import className from 'auxiliary/class-name';
 // provider
 import {Context} from '../../../../context/Provider';
 import {questionActions} from '../../../../context/reducers/questions/index';
-function Question({question}) {
+function Question({question, index}) {
     const context = useContext(Context);
     const questionActive = question.id === context.questState.activeQuestion.id;
     const clickHandler = () => {
@@ -15,7 +15,7 @@ function Question({question}) {
     }
     return (
         <li className={className(Style.Main, {active: questionActive})} onClick={clickHandler}>
-            <div className="sequence">{question.sequenceNumber}.</div>
+            <div className="sequence">{index + 1}.</div>
             <div className="name">{question.name}</div>
         </li>
     )
