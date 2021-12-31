@@ -4,8 +4,8 @@ import Style from './Question.module.scss';
 import className from 'auxiliary/class-name';
 import constants from 'auxiliary/constants';
 // provider
-import {Context} from '../../../../context/Provider';
-import {questionActions} from '../../../../context/reducers/questions/index';
+import {Context} from '../../../../../../context/Provider';
+import {questionActions} from '../../../../../../context/reducers/questions/index';
 function Question({question, index}) {
     const context = useContext(Context);
     const elementRef = useRef();
