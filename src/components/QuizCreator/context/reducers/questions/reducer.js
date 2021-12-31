@@ -8,6 +8,8 @@ function reducer(state, action) {
             return actionHandlers.changeQuestionSelectorMode({state, action});
         case actions.DELETE_QUESTION:
             return actionHandlers.deleteQuestion({state, action});
+        case actions.EDIT_QUESTION_NAME:
+            return actionHandlers.editQuestionName({state, action});
         case actions.SET_ACTIVE_QUESTION:
             return actionHandlers.setActiveQuestion({state, action});
         default:

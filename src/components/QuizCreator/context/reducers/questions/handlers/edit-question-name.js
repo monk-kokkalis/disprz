@@ -1,6 +1,12 @@
+import update from 'immutability-helper';
 function EditQuestionName({state, action}) {
-    // const questions = [...state.questions];
-    return {...state}
+    return update(state, {
+        questions: {
+            [action.payload.targetQuestionIndex]: {name: {
+                $set: action.payload.value
+            }}
+        }
+    });
 }
 
 export default EditQuestionName;

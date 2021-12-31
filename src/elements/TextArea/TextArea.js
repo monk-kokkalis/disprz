@@ -1,7 +1,12 @@
 import {useRef} from 'react';
 import Style from './TextArea.module.scss';
-function TextArea({label, value}) {
+function TextArea({label, value, changeCallback}) {
     const textAreaRef = useRef();
+
+    const changeHandler = (element) => {
+        changeCallback(element.target.value);
+    }
+
     const expansionHandler = () => {
         const element = textAreaRef.current;
         element.style.height = "initial";
@@ -11,7 +16,7 @@ function TextArea({label, value}) {
         <div className={Style.Main} >
             <label>{label}</label>
             <textarea rows="1"
-                onChange={(el) => console.log(el.target.value)}
+                onChange={changeHandler}
                 onInput={expansionHandler}
                 ref={textAreaRef}
                 value={value}>
