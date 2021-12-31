@@ -6,4 +6,8 @@
     @include mixins.padding;
 
     background-color: #BBDEFB;
+
+    section[class~=options] {
+        @include mixins.overflow-container; 
+    }
 }

@@ -1,0 +1,18 @@
+.Main {
+    display: grid;
+    grid-template-columns: 85px 1fr;
+    align-items: center;
+    textarea {
+        background-color: transparent;
+        border: none;
+        border-radius: 4px;
+        outline: 1px solid rgba(0, 0, 0, 0.5);
+        padding: 6px 10px;
+        resize: none;
+        transition: outline-color 180ms ease-in-out, outline-width 170ms ease-in-out;
+        &:focus {
+            outline-width: 2px;
+            outline-color: #0879DF;
+        }
+    }
+}
