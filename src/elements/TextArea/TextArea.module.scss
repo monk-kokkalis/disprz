@@ -2,6 +2,9 @@
     display: grid;
     grid-template-columns: 85px 1fr;
     align-items: center;
+    label {
+        font-weight: 600;
+    }
     textarea {
         background-color: transparent;
         border: none;

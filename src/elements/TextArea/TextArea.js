@@ -1,6 +1,6 @@
 import {useRef} from 'react';
 import Style from './TextArea.module.scss';
-function TextArea({label}) {
+function TextArea({label, value}) {
     const textAreaRef = useRef();
     const expansionHandler = () => {
         const element = textAreaRef.current;
@@ -13,7 +13,8 @@ function TextArea({label}) {
             <textarea rows="1"
                 onChange={(el) => console.log(el.target.value)}
                 onInput={expansionHandler}
-                ref={textAreaRef}>
+                ref={textAreaRef}
+                value={value}>
             </textarea>
         </div>
     )
