@@ -3,6 +3,13 @@
     font-size: 15px;
 }
 
+@mixin grid {
+    display: grid;
+    gap: 10px;
+    height: 100%;
+    min-height: 0;
+}
+
 @mixin main-heading {
     h1 {
         font-size: 18px;

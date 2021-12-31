@@ -1,15 +1,12 @@
 @use '../../mixins.scss';
 .Main {
     @include mixins.font;
+    @include mixins.grid;
     @include mixins.main-heading;
     @include mixins.padding;
 
     background-color: #8EC5F2;
-    display: grid;
-    gap: 10px;
     grid-template-rows: 25px 25px auto 30px;
-    height: 100%;
-    min-height: 0;
 
     section[class~=questions] {
         border: 1px solid rgba(0, 0, 0, 0.15);

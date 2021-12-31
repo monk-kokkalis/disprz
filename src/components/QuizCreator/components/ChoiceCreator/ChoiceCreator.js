@@ -1,8 +1,10 @@
 import Style from './ChoiceCreator.module.scss';
+// components
+import Heading from './components/Heading/Heading';
 function ChoiceCreator() {
     return (
         <div className={Style.Main}>
-            <div>choice creator</div>
+            <Heading />
         </div>
     )
 }
