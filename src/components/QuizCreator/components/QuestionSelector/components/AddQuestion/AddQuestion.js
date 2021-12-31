@@ -19,7 +19,7 @@ function AddQuestion() {
         });
     }
     return (
-        <button onClick={clickHandler} className={Style.Main} >Add</button>
+        <button onClick={clickHandler} className={Style.Main}>Add</button>
     )
 }
 

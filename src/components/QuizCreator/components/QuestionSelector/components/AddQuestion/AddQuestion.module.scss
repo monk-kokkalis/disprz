@@ -1,5 +1,5 @@
 .Main {
-    background-color: #469BE8;
+    background-color: var(--primary-color);
     &:active, &:hover {
         background-color: #05549B;
     }

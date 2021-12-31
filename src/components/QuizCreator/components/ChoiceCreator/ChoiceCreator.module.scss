@@ -10,4 +10,11 @@
     section[class~=options] {
         @include mixins.overflow-container; 
     }
+
+    section[class~=buttons] {
+        @include mixins.buttons-section;
+        button {
+            @include mixins.button;
+        }
+    }
 }
