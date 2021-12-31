@@ -6,20 +6,11 @@
     @include mixins.padding;
 
     background-color: #8EC5F2;
-    grid-template-rows: 25px 25px auto 30px;
 
     section[class~=questions] {
         border: 1px solid rgba(0, 0, 0, 0.15);
         overflow: auto;
         padding: 10px;
-
-        ul {
-            li {
-                &:not(:first-of-type) {
-                    margin-top: 15px;
-                }
-            }
-        }
     }
 
     section[class~=buttons] {

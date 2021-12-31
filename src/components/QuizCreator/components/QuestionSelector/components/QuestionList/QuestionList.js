@@ -1,4 +1,5 @@
 import {useContext} from 'react';
+import Style from './QuestionList.module.scss';
 import {Context} from '../../../../context/Provider';
 import Question from './components/Question/Question';
 function QuestionList() {
@@ -6,9 +7,9 @@ function QuestionList() {
     function Notice() {
         return <div className="notice">There are no questions yet. Click the Add button to create one.</div>
     }
-    function ListItems() {
+    function List() {
         return (
-            <>
+            <ul className={Style.Main}>
                 {context.questState.questions.map((question, index) => 
                     <Question
                         key={question.id}
@@ -16,10 +17,10 @@ function QuestionList() {
                         question={question}
                     />
                 )}
-            </>   
+            </ul>
         )
     }
-    return <ul>{context.questState.questions.length > 0 ? <ListItems/> : <Notice />}</ul>
+    return context.questState.questions.length > 0 ? <List/> : <Notice />
 }
 
 export default QuestionList;

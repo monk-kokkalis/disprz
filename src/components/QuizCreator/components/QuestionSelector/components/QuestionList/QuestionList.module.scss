@@ -1,0 +1,7 @@
+.Main {
+    li {
+        &:not(:first-of-type) {
+            margin-top: 15px;
+        }
+    }
+}

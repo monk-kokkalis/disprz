@@ -6,6 +6,7 @@
 @mixin grid {
     display: grid;
     gap: 10px;
+    grid-template-rows: 25px 25px auto 30px;
     height: 100%;
     min-height: 0;
 }

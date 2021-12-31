@@ -5,6 +5,7 @@ function ChoiceCreator() {
     return (
         <div className={Style.Main}>
             <Heading />
+            <div>Mode indicator here</div>
         </div>
     )
 }
