@@ -1,25 +1,19 @@
 import {useContext} from 'react';
 import {Context} from '../../../../context/Provider';
-import TextArea from 'elements/TextArea/TextArea';
-// provider
-import {questionActions} from '../../../../context/reducers/questions/index';
+// components
+import Template from './components/Template/Template';
+
 function Editor() {
     const context = useContext(Context);
     const {activeQuestion, questions} = context.questState;
     const targetQuestionIndex = questions.findIndex(quest => quest.id === activeQuestion.id);
+
+    function Notice() {
+        return <div>You must first select a question before choices can be modified.</div>
+    }
+
     return (
-        <div>
-            <TextArea
-                label="Question"
-                value={questions[targetQuestionIndex].name}
-                changeCallback={(value) => {
-                    context.questDispatch({
-                        type: questionActions.EDIT_QUESTION_NAME,
-                        payload: {targetQuestionIndex, value}
-                    });
-                }}
-            />
-        </div>
+        targetQuestionIndex !== -1 ? <Template {...{questions, targetQuestionIndex}}/> : <Notice />
     )
 }
 
