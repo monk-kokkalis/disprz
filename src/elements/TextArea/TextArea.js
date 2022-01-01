@@ -1,4 +1,4 @@
-import {useRef} from 'react';
+import {useEffect, useRef} from 'react';
 import Style from './TextArea.module.scss';
 function TextArea({label, value, changeCallback}) {
     const textAreaRef = useRef();
@@ -7,17 +7,17 @@ function TextArea({label, value, changeCallback}) {
         changeCallback(element.target.value);
     }
 
-    const expansionHandler = () => {
+    useEffect(function updateHeight() {
         const element = textAreaRef.current;
         element.style.height = "initial";
         element.style.height = `${element.scrollHeight}px`;
-    }
+    }, [value])
+    
     return (
         <div className={Style.Main} >
             <label>{label}</label>
             <textarea rows="1"
                 onChange={changeHandler}
-                onInput={expansionHandler}
                 ref={textAreaRef}
                 value={value}>
             </textarea>
