@@ -2,6 +2,8 @@ import actions from './actions';
 import actionHandlers from './handlers/index';
 function reducer(state, action) {
     switch(action.type) {
+        case actions.ADD_OPTION:
+            return actionHandlers.addOption({state, action});
         case actions.ADD_QUESTION:
             return actionHandlers.addQuestion({state, action});
         case actions.CHANGE_QUESTION_SELECTOR_MODE:

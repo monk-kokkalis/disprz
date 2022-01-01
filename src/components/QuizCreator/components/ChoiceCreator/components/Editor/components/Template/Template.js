@@ -28,7 +28,7 @@ function Template() {
             </section>
             <section className="options">
                 {targetQuestion?.options.map((op, index) =>
-                    <div className="option">
+                    <div className="option" key={op.id}>
                         <TextArea
                             label={`Option ${index + 1}`}
                             value={op.value}

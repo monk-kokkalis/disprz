@@ -1,4 +1,5 @@
 export default Object.freeze({
+    ADD_OPTION: 'add-option',
     ADD_QUESTION: 'add-question',
     CHANGE_QUESTION_SELECTOR_MODE: 'change-question-selector-mode',
     DELETE_QUESTION: 'delete-question',
