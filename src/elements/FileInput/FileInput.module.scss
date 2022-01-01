@@ -1,0 +1,23 @@
+@use 'components/QuizCreator/mixins.scss';
+.Main {
+    label {
+        color: #fff;
+        cursor: pointer;
+        display: inline-flex;
+
+        input[type=file] {
+            position: absolute;
+            visibility: hidden;
+        }
+
+        span[class~=label--text] {
+            @include mixins.button;
+            @include mixins.primary-button;
+        }
+
+        @media (max-width: 400px) {
+            width: 100%;
+            justify-content: space-between;
+        }
+    }
+}
