@@ -3,6 +3,7 @@
     cursor: pointer;
     display: grid;
     grid-template-columns: 26px 1fr;
+    min-width: 0;
     &[class~=active] {
         color: rgba(0, 0, 0, 1);
         font-weight: 600;
