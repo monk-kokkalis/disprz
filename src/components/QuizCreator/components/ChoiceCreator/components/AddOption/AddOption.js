@@ -1,5 +1,7 @@
 import {useContext} from 'react';
 import Style from './AddOption.module.scss';
+// auxiliary
+import constants from 'auxiliary/constants';
 // hooks
 import useTargetQuestionIndex from '../../hooks/use-target-question-index';
 // provider
@@ -21,6 +23,10 @@ function AddOption() {
             questDispatch({
                 type: questionActions.ADD_OPTION,
                 payload: {targetQuestionIndex, value}
+            });
+            questDispatch({
+                type: questionActions.CHANGE_CHOICE_CREATOR_MODE,
+                payload: {questionSelectorMode: constants.CREATIVE}
             });
         } else {
             snackbar.show({text: "Only a maximum of 6 options can be created for every question."})
