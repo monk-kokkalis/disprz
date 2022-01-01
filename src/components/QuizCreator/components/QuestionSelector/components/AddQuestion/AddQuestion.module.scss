@@ -1,6 +1,4 @@
+@use 'components/QuizCreator/mixins.scss';
 .Main {
-    background-color: var(--primary-color);
-    &:active, &:hover {
-        background-color: #05549B;
-    }
+    @include mixins.primary-button;
 }

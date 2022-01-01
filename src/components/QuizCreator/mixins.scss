@@ -47,3 +47,20 @@
 @mixin padding {
     padding: 20px;
 }
+
+@mixin primary-button {
+    background-color: var(--primary-color);
+    &:active, &:hover {
+        background-color: #05549B;
+    }
+}
+
+@mixin secondary-button {
+    background-color: var(--secondary-color);
+    &:active, &:hover {
+        background-color: #0879DF;
+    }
+    &[class~=delete] {
+        background-color: var(--dark-red);
+    }
+}

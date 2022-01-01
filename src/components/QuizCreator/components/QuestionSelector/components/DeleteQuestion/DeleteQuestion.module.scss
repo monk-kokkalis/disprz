@@ -1,9 +1,4 @@
+@use 'components/QuizCreator/mixins.scss';
 .Main {
-    background-color: var(--secondary-color);
-    &:active, &:hover {
-        background-color: #0879DF;
-    }
-    &[class~=delete] {
-        background-color: var(--dark-red);
-    }
+    @include mixins.secondary-button;
 }
