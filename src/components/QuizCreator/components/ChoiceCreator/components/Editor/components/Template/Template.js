@@ -8,12 +8,13 @@ function Template() {
     const context = useContext(Context);
     const {questions} = context.questState;
     const targetQuestionIndex = useTargetQuestionIndex();
+    const targetQuestion = questions[targetQuestionIndex];
     return (
         <div className={Style.Main}>
             <section className="question--name">
                 <TextArea
                     label="Question"
-                    value={questions[targetQuestionIndex]?.name}
+                    value={targetQuestion?.name}
                     changeCallback={(value) => {
                         context.questDispatch({
                             type: questionActions.EDIT_QUESTION_NAME,
@@ -24,6 +25,19 @@ function Template() {
                 <section className="image">
                     <button>Add Image</button>
                 </section>
+            </section>
+            <section className="options">
+                {targetQuestion?.options.map((op, index) =>
+                    <div className="option">
+                        <TextArea
+                            label={`Option ${index + 1}`}
+                            value={op.value}
+                            changeCallback={(value) => {
+                                console.log(`Option ${index + 1}: `, value);
+                            }}
+                        />
+                    </div>
+                )}
             </section>
         </div>
         
