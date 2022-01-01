@@ -2,7 +2,7 @@ import Style from './Option.module.scss';
 import TextArea from 'elements/TextArea/TextArea';
 function Option({option, index}) {
     return (
-        <div className={Style.Main} key={option.id} onClick={() => {
+        <div className={Style.Main} onClick={() => {
             console.log('click click')
         }}>
             <TextArea

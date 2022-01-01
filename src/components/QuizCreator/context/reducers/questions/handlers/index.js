@@ -1,5 +1,6 @@
 import addOption from './add-option';
 import addQuestion from "./add-question";
+import changeChoiceCreatorMode from './change-choice-creator-mode';
 import changeQuestionSelectorMode from "./change-question-selector-mode";
 import deleteOption from './delete-option';
 import deleteQuestion from './delete-question';
@@ -8,6 +9,7 @@ import setActiveQuestion from "./set-active-question";
 export default Object.freeze({
     addOption,
     addQuestion,
+    changeChoiceCreatorMode,
     changeQuestionSelectorMode,
     deleteOption,
     deleteQuestion,

@@ -1,11 +1,14 @@
 @use 'components/QuizCreator/mixins.scss';
 .Main {
-    section[class~=image] {
-        padding: 15px;
-        text-align: center;
-        button {
-            @include mixins.button;
-            background-color: var(--primary-color);
-        }
+    section[class~=question--name] {
+        padding: 0 10px;
+        section[class~=image] {
+            padding: 15px;
+            text-align: center;
+            button {
+                @include mixins.button;
+                background-color: var(--primary-color);
+            }
+        }     
     }
 }

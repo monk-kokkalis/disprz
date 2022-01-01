@@ -29,7 +29,7 @@ function Template() {
                 </section>
             </section>
             <section className="options">
-                {targetQuestion?.options.map((option, index) => <Option {...{option, index}} />)}
+                {targetQuestion?.options.map((option, index) => <Option key={option.id} {...{option, index}} />)}
             </section>
         </div>
         

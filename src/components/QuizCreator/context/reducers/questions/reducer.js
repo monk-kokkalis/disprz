@@ -6,6 +6,8 @@ function reducer(state, action) {
             return actionHandlers.addOption({state, action});
         case actions.ADD_QUESTION:
             return actionHandlers.addQuestion({state, action});
+        case actions.CHANGE_CHOICE_CREATOR_MODE:
+            return actionHandlers.changeChoiceCreatorMode({state, action});
         case actions.CHANGE_QUESTION_SELECTOR_MODE:
             return actionHandlers.changeQuestionSelectorMode({state, action});
         case actions.DELETE_OPTION:
