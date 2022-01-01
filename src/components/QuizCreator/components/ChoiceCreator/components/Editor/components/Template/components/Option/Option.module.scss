@@ -2,4 +2,9 @@
     &:not(:first-of-type) {
         margin-top: 10px;
     }
+    &[class~=delete] {
+        label, textarea {
+            cursor: pointer;
+        }
+    }
 }

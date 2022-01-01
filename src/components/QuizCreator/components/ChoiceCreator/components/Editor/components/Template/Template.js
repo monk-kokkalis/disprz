@@ -8,7 +8,7 @@ import TextArea from "elements/TextArea/TextArea";
 import Option from './components/Option/Option';
 function Template() {
     const context = useContext(Context);
-    const {questions} = context.questState;
+    const {questions, choiceCreatorMode} = context.questState;
     const targetQuestionIndex = useTargetQuestionIndex();
     const targetQuestion = questions[targetQuestionIndex];
     return (
@@ -28,8 +28,13 @@ function Template() {
                     <button>Add Image</button>
                 </section>
             </section>
-            <section className="options">
-                {targetQuestion?.options.map((option, index) => <Option key={option.id} {...{option, index}} />)}
+            <section className="options--section">
+                {targetQuestion?.options.map((option, index) => 
+                    <Option
+                        key={option.id}
+                        {...{option, index, choiceCreatorMode, targetQuestionIndex}} 
+                    />)
+                }
             </section>
         </div>
         
