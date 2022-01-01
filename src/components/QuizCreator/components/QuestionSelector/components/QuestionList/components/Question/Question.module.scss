@@ -8,4 +8,9 @@
         color: rgba(0, 0, 0, 1);
         font-weight: 600;
     }
+
+    div[class~=name] {
+        min-width: 0;
+        word-wrap: break-word;
+    }
 }
