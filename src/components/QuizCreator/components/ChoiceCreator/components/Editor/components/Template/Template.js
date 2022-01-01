@@ -2,8 +2,10 @@ import Style from './Template.module.scss';
 import {useContext} from 'react';
 import {Context} from '../../../../../../context/Provider';
 import {questionActions} from '../../../../../../context/reducers/questions/index';
-import TextArea from "elements/TextArea/TextArea";
 import useTargetQuestionIndex from '../../../../hooks/use-target-question-index';
+import TextArea from "elements/TextArea/TextArea";
+// components
+import Option from './components/Option/Option';
 function Template() {
     const context = useContext(Context);
     const {questions} = context.questState;
@@ -27,17 +29,7 @@ function Template() {
                 </section>
             </section>
             <section className="options">
-                {targetQuestion?.options.map((op, index) =>
-                    <div className="option" key={op.id}>
-                        <TextArea
-                            label={`Option ${index + 1}`}
-                            value={op.value}
-                            changeCallback={(value) => {
-                                console.log(`Option ${index + 1}: `, value);
-                            }}
-                        />
-                    </div>
-                )}
+                {targetQuestion?.options.map((option, index) => <Option {...{option, index}} />)}
             </section>
         </div>
         
