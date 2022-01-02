@@ -2,9 +2,7 @@ import Style from './FileInput.module.scss';
 function FileInput({changeCallback}) {
     const fileChangeHandler = (event) => {
         const target = event.target;
-        const url = URL.createObjectURL(target.files[0]);
-        const name = target.files[0].name 
-        changeCallback({url, name})
+        changeCallback({image: target.files[0]})
     }
     return (
         <div className={Style.Main}>

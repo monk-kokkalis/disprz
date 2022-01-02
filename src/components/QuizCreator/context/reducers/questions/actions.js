@@ -8,6 +8,7 @@ export default Object.freeze({
     EDIT_OPTION_TEXT: 'edit-option-text',
     EDIT_QUESTION_NAME: 'edit-question-name',
     SET_ACTIVE_QUESTION: 'set-active-question',
+    SET_QUESTION_IMAGE: 'set-question-image',
     SET_QUESTION_SELECTOR_REF: 'set-question-selector-ref',
     SET_SIDE_MENU_VISIBLE: 'set-side-menu-visible'
 })

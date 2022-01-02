@@ -7,6 +7,7 @@ import deleteQuestion from './delete-question';
 import editOptionText from './edit-option-text';
 import editQuestionName from './edit-question-name';
 import setActiveQuestion from "./set-active-question";
+import setQuestionImage from './set-question-image';
 import setQuestionSelectorRef from './set-question-selector-ref';
 import setSideMenuVisible from './set-side-menu-visible';
 export default Object.freeze({
@@ -19,6 +20,7 @@ export default Object.freeze({
     editOptionText,
     editQuestionName,
     setActiveQuestion,
+    setQuestionImage,
     setQuestionSelectorRef,
     setSideMenuVisible
 })
