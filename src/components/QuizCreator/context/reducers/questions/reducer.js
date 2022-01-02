@@ -14,6 +14,8 @@ function reducer(state, action) {
             return actionHandlers.deleteOption({state, action});
         case actions.DELETE_QUESTION:
             return actionHandlers.deleteQuestion({state, action});
+        case actions.EDIT_OPTION_TEXT:
+            return actionHandlers.editOptionText({state, action});
         case actions.EDIT_QUESTION_NAME:
             return actionHandlers.editQuestionName({state, action});
         case actions.SET_ACTIVE_QUESTION:
@@ -23,7 +25,7 @@ function reducer(state, action) {
         case actions.SET_SIDE_MENU_VISIBLE:
             return actionHandlers.setSideMenuVisible({state, action});
         default:
-            throw new Error();
+            throw new Error(`${action.type} is not supported by the reducer`);
     }
 }
 

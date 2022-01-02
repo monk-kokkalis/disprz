@@ -35,7 +35,14 @@ function Option({option, index, choiceCreatorMode, targetQuestionIndex}) {
                 label={`Option ${index + 1}`}
                 value={option.value}
                 changeCallback={(value) => {
-                    console.log(`Option ${index + 1}: `, value);
+                    questDispatch({
+                        type: questionActions.EDIT_OPTION_TEXT,
+                        payload: {
+                            targetQuestionIndex,
+                            optionIndex: targetOptionIndex,
+                            text: value
+                        }
+                    });
                 }}
             />
         </div>
