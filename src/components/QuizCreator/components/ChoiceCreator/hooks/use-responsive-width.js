@@ -5,7 +5,7 @@ function useResponsiveWidth() {
     const {questionSelectorRef} = context.questState;
     const [questionSelectorWidth, setQuestionSelectorWidth] = useState('auto');
     const resizeCallback = useCallback(() => {
-            const questRect = questionSelectorRef?.current.getBoundingClientRect();
+            const questRect = questionSelectorRef?.current?.getBoundingClientRect();
             if (questRect && window.innerWidth <= 767) {
                 setQuestionSelectorWidth(`${questRect.width}px`);
             } else {

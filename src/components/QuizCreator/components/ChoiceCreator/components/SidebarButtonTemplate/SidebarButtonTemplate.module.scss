@@ -1,0 +1,29 @@
+@use 'components/QuizCreator/mixins.scss';
+@mixin bar {
+    position: relative;
+    width: 50%;
+    right: 2px;
+}
+
+.Main {
+    @include mixins.side-button;
+    align-items: flex-start;
+    
+    span {
+        @include mixins.side-button-bar;
+    }
+
+    span[class~=upper] {
+        @include bar;
+        top: 5px;
+        transform: rotate(-35deg);
+    }
+    span[class~=middle] {
+        width: 30px;
+    }
+    span[class~=lower] {
+        @include bar;
+        bottom: 5px;
+        transform: rotate(35deg)
+    }
+}

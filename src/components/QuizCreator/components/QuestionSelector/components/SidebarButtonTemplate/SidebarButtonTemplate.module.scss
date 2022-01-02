@@ -1,17 +1,8 @@
+@use 'components/QuizCreator/mixins.scss';
 .Main {
-    background-color: transparent;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: space-between;
-    padding: 3px;
-    width: 45px;
-    height: 100%;
+    @include mixins.side-button;
 
     span[class~=bar] {
-        background-color: #f4f4f4;
-        border-radius: 3px;
-        height: 4px;
-        width: 100%;
+        @include mixins.side-button-bar;
     }
 }
