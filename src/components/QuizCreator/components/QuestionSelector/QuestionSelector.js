@@ -9,9 +9,9 @@ import SidebarButton from '../SidebarButton/SidebarButton';
 import ButtonTemplate from './components/SidebarButtonTemplate/SidebarButtonTemplate';
 // hooks
 import useRefSetter from './hooks/use-ref-setter';
-import useSidebarButtonCallback from './hooks/use-sidebar-button-callback';
+import useSidebarButtonCallback from '../../hooks/use-sidebar-button-callback';
 function QuestionSelector() {
-    const buttonCallback = useSidebarButtonCallback();
+    const buttonCallback = useSidebarButtonCallback({visible: true});
     const questionSelectorRef = useRef();
     useRefSetter({questionSelectorRef});
     return (

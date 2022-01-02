@@ -9,10 +9,7 @@ function QuestionList() {
     }
     function List() {
         return (
-            
             <ul className={Style.Main}>
-                {/* TODO */}
-                {String(context.questState.sideMenuVisible)}
                 {context.questState.questions.map((question, index) => 
                     <Question
                         key={question.id}
