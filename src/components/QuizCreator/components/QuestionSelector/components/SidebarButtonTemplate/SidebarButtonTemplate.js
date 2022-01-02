@@ -1,4 +1,4 @@
-import Style from './Template.module.scss';
+import Style from './SidebarButtonTemplate.module.scss';
 function Template() {
     return (
         <span className={Style.Main}>

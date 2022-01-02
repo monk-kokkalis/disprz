@@ -1,7 +1,7 @@
 import Style from './SidebarButton.module.scss';
-function SidebarButton({template}) {
+function SidebarButton({template, callback}) {
     return (
-        <button className={Style.Main}>
+        <button className={Style.Main} onClick={callback}>
             {template}
         </button>
     )

@@ -5,6 +5,7 @@ const state = {
     questions,
     questionSelectorMode: constants.CREATIVE,
     choiceCreatorMode: constants.CREATIVE,
-    questionSelectorRef: null
+    questionSelectorRef: null,
+    sideMenuVisible: false
 }
 export default state;

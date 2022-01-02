@@ -6,17 +6,19 @@ import DeleteQuestion from './components/DeleteQuestion/DeleteQuestion';
 import ModeIndicator from './components/ModeIndicator/ModeIndicator';
 import QuestionList from './components/QuestionList/QuestionList';
 import SidebarButton from '../SidebarButton/SidebarButton';
-import ButtonTemplate from './components/SidebarButtonControls/Template';
+import ButtonTemplate from './components/SidebarButtonTemplate/SidebarButtonTemplate';
 // hooks
 import useRefSetter from './hooks/use-ref-setter';
+import useSidebarButtonCallback from './hooks/use-sidebar-button-callback';
 function QuestionSelector() {
+    const buttonCallback = useSidebarButtonCallback();
     const questionSelectorRef = useRef();
     useRefSetter({questionSelectorRef});
     return (
         <div className={Style.Main} ref={questionSelectorRef}>
             <h1 className="heading">
                 <span>Select your questions</span>
-                <SidebarButton template={<ButtonTemplate />} />
+                <SidebarButton template={<ButtonTemplate />} callback={buttonCallback} />
             </h1>
             <ModeIndicator />
             <section className="questions">

@@ -20,6 +20,8 @@ function reducer(state, action) {
             return actionHandlers.setActiveQuestion({state, action});
         case actions.SET_QUESTION_SELECTOR_REF:
             return actionHandlers.setQuestionSelectorRef({state, action});
+        case actions.SET_SIDE_MENU_VISIBLE:
+            return actionHandlers.setSideMenuVisible({state, action});
         default:
             throw new Error();
     }
