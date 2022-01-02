@@ -6,9 +6,11 @@ import Editor from './components/Editor/Editor';
 import Heading from './components/Heading/Heading';
 import ModeIndicator from './components/ModeIndicator/ModeIndicator';
 // hooks
+import useAutomaticAppearance from './hooks/use-automatic-appearance';
 import useResponsiveWidth from './hooks/use-responsive-width';
 import useLeftOffset from './hooks/use-left-offset';
 function ChoiceCreator() {
+    useAutomaticAppearance();
     const width = useResponsiveWidth();
     const left = useLeftOffset({width});
     return (
