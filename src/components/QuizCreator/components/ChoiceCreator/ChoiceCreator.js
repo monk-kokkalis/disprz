@@ -7,10 +7,12 @@ import Heading from './components/Heading/Heading';
 import ModeIndicator from './components/ModeIndicator/ModeIndicator';
 // hooks
 import useResponsiveWidth from './hooks/use-responsive-width';
+import useLeftOffset from './hooks/use-left-offset';
 function ChoiceCreator() {
     const width = useResponsiveWidth();
+    const left = useLeftOffset({width});
     return (
-        <div className={Style.Main} style={{width, left: `-${width}`}}>
+        <div className={Style.Main} style={{width, left}}>
             <Heading />
             <ModeIndicator />
             <section className="options">

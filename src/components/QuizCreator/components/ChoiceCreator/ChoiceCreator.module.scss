@@ -6,6 +6,7 @@
     @include mixins.padding;
 
     background-color: #BBDEFB;
+    transition: left 230ms ease-in-out;
     @media (max-width: 767px) {
         position: absolute;
     }
