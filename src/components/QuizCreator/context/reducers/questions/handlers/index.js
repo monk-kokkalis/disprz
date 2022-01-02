@@ -6,6 +6,7 @@ import deleteOption from './delete-option';
 import deleteQuestion from './delete-question';
 import editQuestionName from './edit-question-name';
 import setActiveQuestion from "./set-active-question";
+import setQuestionSelectorRef from './set-question-selector-ref';
 export default Object.freeze({
     addOption,
     addQuestion,
@@ -14,5 +15,6 @@ export default Object.freeze({
     deleteOption,
     deleteQuestion,
     editQuestionName,
-    setActiveQuestion
+    setActiveQuestion,
+    setQuestionSelectorRef
 })

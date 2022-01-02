@@ -6,6 +6,9 @@
     @include mixins.padding;
 
     background-color: #BBDEFB;
+    @media (max-width: 767px) {
+        position: absolute;
+    }
 
     section[class~=options] {
         @include mixins.overflow-container; 

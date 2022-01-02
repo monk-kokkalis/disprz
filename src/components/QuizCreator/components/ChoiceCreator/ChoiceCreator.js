@@ -5,9 +5,12 @@ import DeleteOption from './components/DeleteOption/DeleteOption';
 import Editor from './components/Editor/Editor';
 import Heading from './components/Heading/Heading';
 import ModeIndicator from './components/ModeIndicator/ModeIndicator';
+// hooks
+import useResponsiveWidth from './hooks/use-responsive-width';
 function ChoiceCreator() {
+    const width = useResponsiveWidth();
     return (
-        <div className={Style.Main}>
+        <div className={Style.Main} style={{width, left: `-${width}`}}>
             <Heading />
             <ModeIndicator />
             <section className="options">

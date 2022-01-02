@@ -6,5 +6,6 @@ export default Object.freeze({
     DELETE_OPTION: 'delete-option',
     DELETE_QUESTION: 'delete-question',
     EDIT_QUESTION_NAME: 'edit-question-name',
-    SET_ACTIVE_QUESTION: 'set-active-question'
+    SET_ACTIVE_QUESTION: 'set-active-question',
+    SET_QUESTION_SELECTOR_REF: 'set-question-selector-ref'
 })
