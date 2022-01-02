@@ -7,7 +7,7 @@ function addQuestion({state, action}) {
             new Option({value: 'Option 1'}),
             new Option({value: 'Option 2'})
         ],
-        file: null
+        image: null
     }); 
     const questions = [...state.questions];
     questions.push(newQuestion);

@@ -7,12 +7,12 @@ class Question {
             new Option({value: 'Option 1'}),
             new Option({value: 'Option 2'})
         ], 
-        file = null
+        image = null
     }) {
         this.id = `${Date.now()}${uuidv4().slice(0, 6)}`;
         this.name = name;
         this.options = options;
-        this.file = file;
+        this.image = image;
     }
 }
 
