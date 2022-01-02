@@ -1,0 +1,7 @@
+@use 'assets/style/effects.scss';
+.Main {
+    @include effects.ripple;
+    background-color: transparent;
+    border: none;
+    height: 100%;
+}
