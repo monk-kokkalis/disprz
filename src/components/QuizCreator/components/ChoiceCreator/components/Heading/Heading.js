@@ -6,7 +6,12 @@ function Heading() {
     const buttonCallback = useSidebarButtonCallback({visible: false});
     const targetQuestionIndex = useTargetQuestionIndex();
     function Notice() {
-        return <div>Select a question</div>
+        return (
+            <h1>
+                <span>Select a question</span>
+                <SidebarButton template={<ButtonTemplate />} callback={buttonCallback} />
+            </h1>
+        )
     }
     function HeadingText() {
         return ( 
