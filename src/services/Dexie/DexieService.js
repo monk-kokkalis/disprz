@@ -20,8 +20,8 @@ class DexieService {
             questionModelId,
             value
         });
-        const action = 'add option';
-        this.#executeDatabaseOperation({req, action});
+        const op = 'add option';
+        this.#executeDatabaseOperation({req, op});
     }
 
     addQuestion({question, options}) {
@@ -36,6 +36,13 @@ class DexieService {
             await this.db.options.bulkAdd(serializedOptions);
         });
         const op = 'add question';
+        this.#executeDatabaseOperation({req, op});
+    }
+
+    async deleteOption({modelId}) {
+        const option = await this.db.options.get({modelId: modelId});
+        const req = this.db.options.delete(option.id);
+        const op = 'delete option';
         this.#executeDatabaseOperation({req, op});
     }
 
@@ -54,8 +61,8 @@ class DexieService {
             });
             return await Promise.all(questions);
         });
-        const action = 'get all questions';
-        return await this.#executeDatabaseOperation({req, action});
+        const op = 'get all questions';
+        return await this.#executeDatabaseOperation({req, op});
     }
 
     async getAllQuestionOptions({questionModelId}) {
@@ -63,8 +70,8 @@ class DexieService {
             .where(constants.QUESTION_MODEL_ID)
             .equals(questionModelId)
             .toArray();
-        const action = 'get all question options'
-        return this.#executeDatabaseOperation({req, action});
+        const op = 'get all question options'
+        return this.#executeDatabaseOperation({req, op});
     }
 }
 
