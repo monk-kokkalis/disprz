@@ -14,6 +14,13 @@ class Question {
         this.options = options;
         this.image = image;
     }
+
+    serialize() {
+        return {
+            name: this.name,
+            modelId: this.id
+        }
+    }
 }
 
 export default Question;

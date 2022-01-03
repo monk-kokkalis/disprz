@@ -1,11 +1,14 @@
 import actions from './actions';
 import actionHandlers from './handlers/index';
+import DexieService from 'services/Dexie/DexieService';
+const dexie = new DexieService();
+
 function reducer(state, action) {
     switch(action.type) {
         case actions.ADD_OPTION:
             return actionHandlers.addOption({state, action});
         case actions.ADD_QUESTION:
-            return actionHandlers.addQuestion({state, action});
+            return actionHandlers.addQuestion({state, action, dexie});
         case actions.CHANGE_CHOICE_CREATOR_MODE:
             return actionHandlers.changeChoiceCreatorMode({state, action});
         case actions.CHANGE_QUESTION_SELECTOR_MODE:
