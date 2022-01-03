@@ -20,7 +20,7 @@ function reducer(state, action) {
         case actions.EDIT_OPTION_TEXT:
             return actionHandlers.editOptionText({state, action, dexie});
         case actions.EDIT_QUESTION_NAME:
-            return actionHandlers.editQuestionName({state, action});
+            return actionHandlers.editQuestionName({state, action, dexie});
         case actions.LOAD_QUESTIONS_FROM_INDEXED_DB:
             return actionHandlers.loadQuestionsFromIndexedDb({state, action});
         case actions.SET_ACTIVE_QUESTION:
