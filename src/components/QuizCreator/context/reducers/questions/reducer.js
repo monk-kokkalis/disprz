@@ -26,7 +26,7 @@ function reducer(state, action) {
         case actions.SET_ACTIVE_QUESTION:
             return actionHandlers.setActiveQuestion({state, action});
         case actions.SET_QUESTION_IMAGE:
-            return actionHandlers.setQuestionImage({state, action});
+            return actionHandlers.setQuestionImage({state, action, dexie});
         case actions.SET_QUESTION_SELECTOR_REF:
             return actionHandlers.setQuestionSelectorRef({state, action});
         case actions.SET_SIDE_MENU_VISIBLE:

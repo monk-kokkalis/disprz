@@ -99,6 +99,23 @@ class DexieService {
         const op = 'get all question options'
         return this.#executeDatabaseOperation({req, op});
     }
+
+    async setQuestionImage({modelId, file}) {
+        const req = this.db.transaction('rw', this.db.questions, this.db.images, async () => {
+            const image = await this.db.images.get({questionModelId: modelId});
+            if (image) {
+                await this.db.images.update(image.id, {file});
+            } else {
+                await this.db.images.add({
+                    modelId: String(Date.now()),
+                    questionModelId: modelId,
+                    file
+                });
+            }
+        });
+        const op = 'get all question options';
+        await this.#executeDatabaseOperation({req, op});
+    }
 }
 
 export default DexieService;
