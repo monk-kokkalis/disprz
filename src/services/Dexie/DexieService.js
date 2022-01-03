@@ -40,8 +40,12 @@ class DexieService {
     }
 
     async deleteOption({modelId}) {
-        const option = await this.db.options.get({modelId});
-        const req = this.db.options.delete(option.id);
+        const req = this.db.transaction('rw', this.db.options, async () => {
+            const option = await this.db.options.get({modelId});
+            if (option) {
+                await this.db.options.delete(option.id);
+            }
+        });
         const op = 'delete option';
         this.#executeDatabaseOperation({req, op});
     }
