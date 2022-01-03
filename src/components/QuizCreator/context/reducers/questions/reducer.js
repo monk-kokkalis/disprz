@@ -18,7 +18,7 @@ function reducer(state, action) {
         case actions.DELETE_QUESTION:
             return actionHandlers.deleteQuestion({state, action, dexie});
         case actions.EDIT_OPTION_TEXT:
-            return actionHandlers.editOptionText({state, action});
+            return actionHandlers.editOptionText({state, action, dexie});
         case actions.EDIT_QUESTION_NAME:
             return actionHandlers.editQuestionName({state, action});
         case actions.LOAD_QUESTIONS_FROM_INDEXED_DB:

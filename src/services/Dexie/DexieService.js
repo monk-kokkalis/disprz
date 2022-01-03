@@ -58,6 +58,13 @@ class DexieService {
         await this.db.questions.delete(question.id);
     }
 
+    async editOptionText({modelId, text}) {
+        const option = await this.db.options.get({modelId});
+        const req = this.db.options.update(option.id, {"value": text});
+        const op = 'edit option text';
+        return await this.#executeDatabaseOperation({req, op});
+    }
+
     async getAllQuestions() {
         const req = this.db.transaction('r', this.db.questions, this.db.options, this.db.images, async () => {
             const questionRows = await this.db.questions.toArray();
