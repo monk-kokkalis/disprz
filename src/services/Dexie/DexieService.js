@@ -1,4 +1,5 @@
 import db from './init';
+import constants from 'auxiliary/constants';
 class DexieService {
     constructor() {
         this.db = db;
@@ -26,6 +27,40 @@ class DexieService {
         });
         const op = 'add question';
         this.#executeDatabaseOperation({req, op});
+    }
+
+    async getAllRows({table}) {
+        const req = this.db[table].toArray();
+        const op = 'get all rows';
+        return await this.#executeDatabaseOperation({req, op});
+    }
+
+    async getAllQuestions() {
+        const req = this.db.transaction('r', this.db.questions, this.db.options, this.db.images, async () => {
+            const questionRows = await this.db.questions.toArray();
+            const questions = questionRows.map(async (quest) => {
+                const options = await this.db.options
+                    .where(constants.QUESTION_MODEL_ID)
+                    .equals(quest.modelId)
+                    .toArray();
+                const image = await this.db.images.get({[constants.QUESTION_MODEL_ID]: quest.modelId});
+                quest.options = options;
+                quest.image = image?.file;
+                return quest;
+            });
+            return await Promise.all(questions);
+        });
+        const action = 'get all questions';
+        return await this.#executeDatabaseOperation({req, action});
+    }
+
+    async getAllQuestionOptions({questionModelId}) {
+        const req = this.db.options
+            .where(constants.QUESTION_MODEL_ID)
+            .equals(questionModelId)
+            .toArray();
+        const action = 'get all question options'
+        return this.#executeDatabaseOperation({req, action});
     }
 }
 

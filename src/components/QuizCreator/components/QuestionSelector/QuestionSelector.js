@@ -8,11 +8,13 @@ import QuestionList from './components/QuestionList/QuestionList';
 import SidebarButton from '../SidebarButton/SidebarButton';
 import ButtonTemplate from './components/SidebarButtonTemplate/SidebarButtonTemplate';
 // hooks
+import useIndexedDbQuestionsLoader from './hooks/use-indexed-db-questions-loader';
 import useRefSetter from './hooks/use-ref-setter';
 import useSidebarButtonCallback from '../../hooks/use-sidebar-button-callback';
 function QuestionSelector() {
     const buttonCallback = useSidebarButtonCallback({visible: true});
     const questionSelectorRef = useRef();
+    useIndexedDbQuestionsLoader();
     useRefSetter({questionSelectorRef});
     return (
         <div className={Style.Main} ref={questionSelectorRef}>

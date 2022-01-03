@@ -1,7 +1,10 @@
 import { v4 as uuidv4 } from 'uuid';
 class Option {
-    constructor({value}) {
-        this.id = `${Date.now()}${uuidv4().slice(0, 6)}`;
+    constructor({
+        id = `${Date.now()}${uuidv4().slice(0, 6)}`,
+        value,
+    }) {
+        this.id = id;
         this.value = value;
     }
 

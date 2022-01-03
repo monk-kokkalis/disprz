@@ -21,6 +21,8 @@ function reducer(state, action) {
             return actionHandlers.editOptionText({state, action});
         case actions.EDIT_QUESTION_NAME:
             return actionHandlers.editQuestionName({state, action});
+        case actions.LOAD_QUESTIONS_FROM_INDEXED_DB:
+            return actionHandlers.loadQuestionsFromIndexedDb({state, action});
         case actions.SET_ACTIVE_QUESTION:
             return actionHandlers.setActiveQuestion({state, action});
         case actions.SET_QUESTION_IMAGE:
