@@ -22,7 +22,6 @@ function useIndexedDbQuestionsLoader() {
                     image
                 })
             });
-            console.log(questions);
             questDispatch({
                 type: questionActions.LOAD_QUESTIONS_FROM_INDEXED_DB,
                 payload: {questions}

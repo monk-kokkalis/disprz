@@ -14,6 +14,16 @@ class DexieService {
         }
     }
 
+    addOption({modelId, questionModelId, value}) {
+        const req = this.db.options.add({
+            modelId,
+            questionModelId,
+            value
+        });
+        const action = 'add option';
+        this.#executeDatabaseOperation({req, action});
+    }
+
     addQuestion({question, options}) {
         const req = this.db.transaction('rw', this.db.questions, this.db.options, async () => {
             const serializedQuestion = question.serialize();
@@ -27,12 +37,6 @@ class DexieService {
         });
         const op = 'add question';
         this.#executeDatabaseOperation({req, op});
-    }
-
-    async getAllRows({table}) {
-        const req = this.db[table].toArray();
-        const op = 'get all rows';
-        return await this.#executeDatabaseOperation({req, op});
     }
 
     async getAllQuestions() {

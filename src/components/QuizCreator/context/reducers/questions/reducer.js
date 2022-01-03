@@ -6,7 +6,7 @@ const dexie = new DexieService();
 function reducer(state, action) {
     switch(action.type) {
         case actions.ADD_OPTION:
-            return actionHandlers.addOption({state, action});
+            return actionHandlers.addOption({state, action, dexie});
         case actions.ADD_QUESTION:
             return actionHandlers.addQuestion({state, action, dexie});
         case actions.CHANGE_CHOICE_CREATOR_MODE:
