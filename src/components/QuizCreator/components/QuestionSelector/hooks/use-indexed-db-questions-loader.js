@@ -12,20 +12,22 @@ function useIndexedDbQuestionsLoader() {
         const dexie = new DexieService();
         (async function loadQuestions() {
             const res = await dexie.getAllQuestions();
-            const questions = res.map(quest => {
-                const options = quest.options.map(op => new Option({id: op.modelId, value: op.value}));
-                const image = quest.image === undefined ? null : quest.image
-                return new Question({
-                    id: quest.modelId,
-                    name: quest.name,
-                    options,
-                    image
+            if (res) {
+                const questions = res.map(quest => {
+                    const options = quest.options.map(op => new Option({id: op.modelId, value: op.value}));
+                    const image = quest.image === undefined ? null : quest.image
+                    return new Question({
+                        id: quest.modelId,
+                        name: quest.name,
+                        options,
+                        image
+                    })
+                });
+                questDispatch({
+                    type: questionActions.LOAD_QUESTIONS_FROM_INDEXED_DB,
+                    payload: {questions}
                 })
-            });
-            questDispatch({
-                type: questionActions.LOAD_QUESTIONS_FROM_INDEXED_DB,
-                payload: {questions}
-            })
+            }
         })()
     }, [questDispatch])
 }

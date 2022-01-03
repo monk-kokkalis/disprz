@@ -47,15 +47,21 @@ class DexieService {
     }
 
     async deleteQuestion({modelId}) {
-        const question = await this.db.questions.get({modelId});
-        const options = await this.getAllQuestionOptions({questionModelId: modelId});
-        const image = await this.db.images.get({questionModelId: modelId});
-        
-        if (image) {
-            await this.db.images.delete(image.id)
-        }
-        await this.db.options.bulkDelete(options.map(op => op.id));
-        await this.db.questions.delete(question.id);
+        const req = this.db.transaction('rw', this.db.questions, this.db.options, this.db.images, async () => {
+            const question = await this.db.questions.get({modelId});
+            if (question) {
+                const options = await this.getAllQuestionOptions({questionModelId: modelId});
+                const image = await this.db.images.get({questionModelId: modelId});
+                
+                if (image) {
+                    await this.db.images.delete(image.id)
+                }
+                await this.db.options.bulkDelete(options.map(op => op.id));
+                await this.db.questions.delete(question.id);
+            }
+        })
+        const op = 'delete question';
+        this.#executeDatabaseOperation({req, op});
     }
 
     async editOptionText({modelId, text}) {
@@ -66,10 +72,13 @@ class DexieService {
     }
 
     async editQuestionName({modelId, name}) {
-        const question = await this.db.questions.get({modelId});
-        const req = this.db.questions.update(question.id, {name});
+        const req = this.db.transaction('rw', this.db.questions, async () => {
+            const question = await this.db.questions.get({modelId});
+            await this.db.questions.update(question.id, {name});
+        })
         const op = 'edit question name';
         await this.#executeDatabaseOperation({req, op});
+
     }
 
     async getAllQuestions() {
