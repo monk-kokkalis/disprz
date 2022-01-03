@@ -40,10 +40,22 @@ class DexieService {
     }
 
     async deleteOption({modelId}) {
-        const option = await this.db.options.get({modelId: modelId});
+        const option = await this.db.options.get({modelId});
         const req = this.db.options.delete(option.id);
         const op = 'delete option';
         this.#executeDatabaseOperation({req, op});
+    }
+
+    async deleteQuestion({modelId}) {
+        const question = await this.db.questions.get({modelId});
+        const options = await this.getAllQuestionOptions({questionModelId: modelId});
+        const image = await this.db.images.get({questionModelId: modelId});
+        
+        if (image) {
+            await this.db.images.delete(image.id)
+        }
+        await this.db.options.bulkDelete(options.map(op => op.id));
+        await this.db.questions.delete(question.id);
     }
 
     async getAllQuestions() {
